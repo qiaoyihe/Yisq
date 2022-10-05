@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="cn">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+  <!-- COMMON TAGS -->
+  <meta charset="utf-8">
+  <title>生活在于折腾</title>
+  <!-- Search Engine -->
+  <meta name="description" content="生活在于折腾 - 我们生活在阴沟里，但有人依然仰望星空。">
+  <meta name="image" content="./images/avatar.jpg">
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+
+<body>
+  <main class="main-container">
+    <div class="my-card">
+      <div class="my-card__body">
+        <div class="my-card__profile">
+          <div class="my-card__avatar">
+            <img src="./images/avatar.jpg">
+          </div>
+          <div class="my-card__info">
+            <h1 class="name">undefined</h1>
+            <div id="QID" class="my-card__qid">
+              <label>QID:</label>
+              <span><a class="text-inherit" href="tencent://message/?uin=xxxxxx" target="_blank">EchoError</a></span>
+            </div>
+            <div class="personal-tags">
+              <span class="tag">重庆</span>
+              <span class="tag">苦逼打工仔</span>
+              <span class="tag">生活在于折腾</span>
+            </div>
+            <p class="personal-signature" id="hitokoto" onclick="hitokoto()">我们生活在阴沟里，但有人依然仰望星空。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <p>
+         <span>Copyright © 2020-2022</span>	
+<!--
+        <a target="_blank" href="/index.html">@乔</a>
+		  <p>
+        <a href="https://beian.miit.gov.cn/#/Integrated/recordQuery" target="_blank">yu</a></p>
+-->
+      </p>
+    </footer>
+  </main>
+  <script>
+    const hitokoto = () => {
+      try {
+        fetch('https://v1.hitokoto.cn?c=h')
+          .then(response => response.json())
+          .then(data => {
+            const hitokoto = document.getElementById('hitokoto')
+            hitokoto.innerText = data.hitokoto
+          })
+          .catch(console.error)
+      } catch { }
+    }
+    window.onload = () => {
+      hitokoto()
+    }
+  </script>
+	
+</body>
+
+</html>
